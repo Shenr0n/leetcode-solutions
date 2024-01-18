@@ -1,23 +1,15 @@
 func isSubsequence(s string, t string) bool {
-    first := len(s)-1
-    second := len(t)-1
-
     if s == "" {
         return true
     }
+    first, second := len(s), len(t)
+    i,j:=0, 0
     
-    for i,j:=0,0; i<=first && j<=second; {
-        
+    for i<first && j<second {    
         if s[i] == t[j] {
-            if i == first && j<=second {
-                return true
-            } else {
-                i++
-                j++
-            }
-        } else {
-            j++
+            i++
         }
+        j++
     }
-    return false
+    return i == len(s)
 }
