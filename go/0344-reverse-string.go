@@ -1,11 +1,10 @@
 func reverseString(s []byte)  {
-    
-    size := len(s)
-    
-    for i := 0 ; i < size/2 ; i++{
-        s[i], s[size-1-i] = s[size-1-i], s[i]
+    left := 0
+    right := len(s)-1
+
+    for left<=right{
+        s[left], s[right] = s[right], s[left]
+        left++
+        right--
     }
-    
-    return
-    
 }
