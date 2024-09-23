@@ -1,0 +1,15 @@
+class Solution:
+    def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        left = 0
+        sub_len = 0
+        freq_hash = defaultdict(int)
+        
+        for right in range(len(nums)):
+            freq_hash[nums[right]] += 1
+        
+            while (freq_hash[nums[right]]) > k:
+                freq_hash[nums[left]] -= 1
+                left += 1
+
+            sub_len = max(sub_len, right-left+1)
+        return sub_len
